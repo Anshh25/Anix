@@ -1,119 +1,64 @@
-import 'package:anix/V/SignUpScreen.dart';
 import 'package:flutter/material.dart';
 
-import 'ManagerDashboard.dart';
-import 'OwnerDashboard.dart';
-
-class SignInScreen extends StatefulWidget {
-  const SignInScreen({Key? key}) : super(key: key);
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({super.key});
 
   @override
-  State<SignInScreen> createState() => _SignInScreenState();
+  State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _SignInScreenState extends State<SignInScreen> {
-  final _formKey = GlobalKey<FormState>();
-  String? _selectedRole = 'Manager';
+class _SignUpScreenState extends State<SignUpScreen> {
+  final _formKeySignUp = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[50],
       body: SafeArea(
         child: Container(
           height: double.infinity,
           width: double.infinity,
           child: SingleChildScrollView(
-
+      
             physics: AlwaysScrollableScrollPhysics(),
             child: Column(
               children: [
                 // Header
                 Padding(
                   padding: const EdgeInsets.all(20.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const SizedBox(width: 40),
-                      const Text(
-                        '         A N I X ',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                      Image.asset(
-                        "./images/ic_launcher.png",
-                        fit: BoxFit.contain,
-                        height: MediaQuery.sizeOf(context).height * 0.095,
-                      ),
-                    ],
+                  child: Image.asset(
+                    "./images/ic_launcher.png",
+                    fit: BoxFit.contain,
+                    height: MediaQuery.sizeOf(context).height * 0.095,
                   ),
                 ),
-
+      
                 const SizedBox(height: 60),
-
+      
                 // Sign in title
                 const Text(
-                  'Sign in',
+                  'Sign Up',
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 32,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-
+      
                 const SizedBox(height: 60),
-
+      
                 // Form
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
                   child: Form(
-                    key: _formKey,
+                    key: _formKeySignUp,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
-                          'Select Role',
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.black87,
-                          ),
-                        ),
-                        Row(
-                          children: [
-                            Expanded(
-                              child: RadioListTile<String>(
-                                title: const Text('Manager', style: TextStyle(fontSize: 15),),
-                                value: 'Manager',
-                                groupValue: _selectedRole,
-                                onChanged: (value) {
-                                  setState(() {
-                                    _selectedRole = value;
-                                  });
-                                },
-                              ),
-                            ),
-                            Expanded(
-                              child: RadioListTile<String>(
-                                title: const Text('Owner', style: TextStyle(fontSize: 15),),
-                                value: 'Owner',
-                                groupValue: _selectedRole,
-                                onChanged: (value) {
-                                  setState(() {
-                                    _selectedRole = value;
-                                  });
-                                },
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 20),
 
+      
+                        const SizedBox(height: 20),
+      
                         // Email Field
                         const Text(
                           'Email address',
@@ -142,7 +87,7 @@ class _SignInScreenState extends State<SignInScreen> {
                             },
                           ),
                         ),
-
+      
                         const Text(
                           'Password',
                           style: TextStyle(
@@ -171,30 +116,14 @@ class _SignInScreenState extends State<SignInScreen> {
                             },
                           ),
                         ),
-
+      
                         const SizedBox(height: 20),
-
+      
                         SizedBox(
                           width: double.infinity,
                           child: ElevatedButton(
                             onPressed: () {
-                              if (_formKey.currentState!.validate()) {
-                                print('Role: $_selectedRole');
-                                print('Email: ${_emailController.text}');
-                                print('Password: ${_passwordController.text}');
-                              }
-                              if(_selectedRole == 'Manager'){
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (context) =>  ManagerDashboard()),
-                                );
-                              }
-                              else if(_selectedRole == 'Owner'){
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (context) => OwnerDashboard()),
-                                );
-                              }
+      
                             },
                             style: ElevatedButton.styleFrom(
                               shadowColor: Colors.black45,
@@ -225,7 +154,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                 context,
                                 MaterialPageRoute(builder: (context) => SignUpScreen()),
                               );
-
+      
                             },
                             style: ElevatedButton.styleFrom(
                               shadowColor: Colors.black45,
@@ -249,7 +178,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       ],
                     ),
                   ),
-
+      
                 ),
               ],
             ),

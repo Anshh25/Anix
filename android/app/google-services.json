@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "624102922978",
+    "project_id": "anix-6434f",
+    "storage_bucket": "anix-6434f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:624102922978:android:7e784141c9da038a55dcbb",
+        "android_client_info": {
+          "package_name": "com.anix.anix"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWoPFuMJgnsd7_kJLUT_8UQjdbIUPHvV4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
