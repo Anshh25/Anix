@@ -2,15 +2,16 @@ import 'package:anix/V/SignInScreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-import 'V/Splash.dart';
 import 'firebase_options.dart';
 
 Future<void> main() async {
+  // ADD THIS LINE
+  WidgetsFlutterBinding.ensureInitialized();
 
+  // Your Firebase initialization should have the 'name' parameter removed
+  // unless you are specifically using multiple Firebase apps.
+  // The CLI configuration usually doesn't require it.
   await Firebase.initializeApp(
-    name: "anix",
-
-
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(const MyApp());
@@ -19,10 +20,9 @@ Future<void> main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: SignInScreen(),
       debugShowCheckedModeBanner: false,
     );
